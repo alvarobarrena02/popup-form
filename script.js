@@ -19,22 +19,39 @@ jQuery(document).ready(function($) {
                 '</div>');
         }
 
-        $('#contact-form').on('submit', function(event) {
-            event.preventDefault();
-            var datos = $(this).serialize();
-            $.ajax({
-                url: ajax_object.ajaxurl,
-                type: 'POST',
-                data: datos + '&action=procesar_formulario',
-                success: function(response) {
-                    $('#overlay, #popup-form').remove();
-                    alert("¡Formulario enviado con éxito!.");
-                },
-                error: function(response) {
-                    alert("Hubo un error al enviar el formulario. Inténtelo de nuevo.");
-                }
-            });
+    $('#contact-form').on('submit', function(event) {
+        event.preventDefault();
+
+        var email = $('#email').val();
+        var telefono = $('#telefono').val();
+
+        var emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+        var telefonoRegex = /^[0-9]{10,14}$/; // Asume que el teléfono tiene entre 10 y 14 dígitos
+
+        if (!emailRegex.test(email)) {
+            alert("Por favor, introduce un correo electrónico válido.");
+            return;
+        }
+
+        if (!telefonoRegex.test(telefono)) {
+            alert("Por favor, introduce un número de teléfono válido.");
+            return;
+        }
+
+        var datos = $(this).serialize();
+        $.ajax({
+            url: ajax_object.ajaxurl,
+            type: 'POST',
+            data: datos + '&action=procesar_formulario',
+            success: function(response) {
+                $('#overlay, #popup-form').remove();
+                alert("¡Formulario enviado con éxito!.");
+            },
+            error: function(response) {
+                alert("Hubo un error al enviar el formulario. Inténtelo de nuevo.");
+            }
         });
+    });
 
         $('#cerrar-popup').click(function() {
             $('#overlay, #popup-form').remove();

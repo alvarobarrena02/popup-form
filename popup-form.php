@@ -27,19 +27,31 @@ function mostrar_sobre() {
     add_action('wp_footer', 'mostrar_sobre');
 
 function procesar_formulario() {
-    if (!empty($_POST['nombre']) && !empty($_POST['email'])) {
-        global $wpdb;
-        $tabla = $wpdb->prefix . 'contactos';
-        $datos = array(
-            'nombre' => $_POST['nombre'],
-            'apellidos' => $_POST['apellidos'],
-            'email' => $_POST['email'],
-            'telefono' => $_POST['telefono'],
-            'asunto' => $_POST['asunto'],
-            'mensaje' => $_POST['mensaje']
-        );
-        $wpdb->insert($tabla, $datos);
+    global $wpdb;
+    $tabla = $wpdb->prefix . 'contactos';
+
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        wp_send_json_error('El correo electrónico no es válido');
+        return;
     }
+
+    if (!preg_match('/^[0-9]{10,14}$/', $telefono)) {
+        wp_send_json_error('El número de teléfono no es válido');
+        return;
+    }
+
+    $datos = array(
+        'nombre' => $_POST['nombre'],
+        'apellidos' => $_POST['apellidos'],
+        'email' => $email,
+        'telefono' => $telefono,
+        'asunto' => $_POST['asunto'],
+        'mensaje' => $_POST['mensaje']
+    );
+    $wpdb->insert($tabla, $datos);
 }
 add_action('wp_ajax_procesar_formulario', 'procesar_formulario');
 add_action('wp_ajax_nopriv_procesar_formulario', 'procesar_formulario');
