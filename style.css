@@ -37,6 +37,7 @@
     transform: translate(-50%, 0);
     background: white;
     padding: 20px;
+    padding-left: 50px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -80,17 +81,6 @@
     margin-right: 5px;
 }
 
-#popup-form input[type="submit"] {
-    background: #0073aa;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#popup-form input[type="submit"]:hover {
-    background: #005999;
-}
-
 #popup-form .fcustom-full,
 #popup-form .fcustom-full > input,
 #popup-form .fcustom-full > textarea {
@@ -100,6 +90,22 @@
 
 #popup-form .acepto {
     width: 100%;
+}
+
+#popup-form .fcustom-full > textarea {
+    height: 150px;
+}
+
+#popup-form input[type="submit"] {
+    background: #0073aa;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#popup-form input[type="submit"]:hover {
+    background: #005999;
 }
 
 #cerrar-popup {
