@@ -1,0 +1,108 @@
+#icono-sobre {
+    cursor: pointer;
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    background-color: #fff;
+    border: 2px solid #00659d;
+    padding: 3px 10px;
+    width: 80px;
+    height: 60px;
+    text-align: center;
+    margin-bottom: 35px; margin-right: -10px;
+    transition: all 0.3s ease;
+}
+
+#icono-sobre:hover {
+    background-color: #00659d;
+    transform: scale(1.1);
+    margin-right: -3px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+#popup-form {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+}
+
+#popup-form input,
+#popup-form textarea,
+#popup-form select {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#popup-form h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#popup-form form {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.8em;
+}
+
+#popup-form .fcustom > input {
+    width: 100%;
+}
+
+#popup-form .fcustom {
+    width: 45%;
+    margin-right: 5%;
+}
+
+#popup-form input[type="checkbox"] {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+#popup-form input[type="submit"] {
+    background: #0073aa;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#popup-form input[type="submit"]:hover {
+    background: #005999;
+}
+
+#cerrar-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2.2em;
+    color: #0073aa;
+    transition: all 0.3s ease;
+    margin-right: 20px;
+}
+
+#cerrar-popup:hover {
+    color: #005999;
+    transform: scale(1.5);
+}
