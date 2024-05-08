@@ -91,6 +91,17 @@
     background: #005999;
 }
 
+#popup-form .fcustom-full,
+#popup-form .fcustom-full > input,
+#popup-form .fcustom-full > textarea {
+    width: 100%;
+    margin-right: 5%;
+}
+
+#popup-form .acepto {
+    width: 100%;
+}
+
 #cerrar-popup {
     position: absolute;
     top: 10px;

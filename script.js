@@ -10,11 +10,11 @@ jQuery(document).ready(function($) {
                 '<label for="apellidos" class="fcustom">Apellidos: <input type="text" id="apellidos" name="apellidos"></label>' +
                 '<label for="email" class="fcustom">Email: <input type="email" id="email" name="email"></label>' +
                 '<label for="telefono" class="fcustom">Teléfono: <input type="text" id="telefono" name="telefono"></label>' +
-                '<label for="asunto" class="fcustom">Asunto: <input type="text" id="asunto" name="asunto"></label>' +
-                '<label for="mensaje" class="fcustom">Mensaje: <textarea id="mensaje" name="mensaje"></textarea></label>' +
-                '<label for="politica-privacidad"><input type="checkbox" id="politica-privacidad" name="politica-privacidad"> Acepto la Política de Privacidad y que mis datos serán almacenados para esta solicitud GDPR.</label>' +
-                '<label for="consentimiento-datos"><input type="checkbox" id="consentimiento-datos" name="consentimiento-datos"> Consiente el tratamiento de sus datos personales con la finalidad de enviarle invitaciones a cursos y talleres similares al solicitado.</label>' +
-                '<br><input type="submit" value="Enviar">' +
+                '<label for="asunto" class="fcustom-full">Asunto: <input type="text" id="asunto" name="asunto"></label>' +
+                '<label for="mensaje" class="fcustom-full">Mensaje: <textarea id="mensaje" name="mensaje"></textarea></label>' +
+                '<label for="politica-privacidad" class="acepto"><input type="checkbox" id="politica-privacidad" name="politica-privacidad"> Acepto la Política de Privacidad y que mis datos serán almacenados para esta solicitud GDPR.</label>' +
+                '<label for="consentimiento-datos" class="acepto"><input type="checkbox" id="consentimiento-datos" name="consentimiento-datos"> Consiente el tratamiento de sus datos personales con la finalidad de enviarle invitaciones a cursos y talleres similares al solicitado.</label>' +
+                '<input type="submit" value="Enviar"">' +
                 '</form>' +
                 '</div>');
         }
