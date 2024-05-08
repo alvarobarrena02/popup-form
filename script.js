@@ -4,27 +4,17 @@ jQuery(document).ready(function($) {
             $('body').append('<div id="overlay"></div>'); // Se crea un div para difuminar el fondo
             $('body').append('<div id="popup-form">' +
                 '<h2>Contacta con nosotros</h2>' +
-
                 '<span id="cerrar-popup">×</span>' +
-
                 '<form id="contact-form">' +
-
-                '<label for="nombre" class="fcustom">Nombre: <input type="text" id="nombre" name="nombre"><br></label>' +
-
-                '<label for="apellidos" class="fcustom">Apellidos: <input type="text" id="apellidos" name="apellidos"><br></label>' +
-
-                '<label for="email" class="fcustom">Email: <input type="email" id="email" name="email"><br></label>' +
-
-                '<label for="telefono" class="fcustom">Teléfono: <input type="text" id="telefono" name="telefono"><br></label>' +
-
-                '<label for="asunto">Asunto: <input type="text" id="asunto" name="asunto"><br></label>' +
-
-                '<label for="mensaje">Mensaje: <textarea id="mensaje" name="mensaje"></textarea><br></label>' +
-
-                '<label for="politica-privacidad"><input type="checkbox" id="politica-privacidad" name="politica-privacidad"> Acepto la Política de Privacidad y que mis datos serán almacenados para esta solicitud GDPR.</label><br>' +
-
-                '<label for="consentimiento-datos"><input type="checkbox" id="consentimiento-datos" name="consentimiento-datos"> Consiente el tratamiento de sus datos personales con la finalidad de enviarle invitaciones a cursos y talleres similares al solicitado.</label><br/>' +
-                '<br/><input type="submit" value="Enviar">' +
+                '<label for="nombre" class="fcustom">Nombre: <input type="text" id="nombre" name="nombre"></label>' +
+                '<label for="apellidos" class="fcustom">Apellidos: <input type="text" id="apellidos" name="apellidos"></label>' +
+                '<label for="email" class="fcustom">Email: <input type="email" id="email" name="email"></label>' +
+                '<label for="telefono" class="fcustom">Teléfono: <input type="text" id="telefono" name="telefono"></label>' +
+                '<label for="asunto" class="fcustom">Asunto: <input type="text" id="asunto" name="asunto"></label>' +
+                '<label for="mensaje" class="fcustom">Mensaje: <textarea id="mensaje" name="mensaje"></textarea></label>' +
+                '<label for="politica-privacidad"><input type="checkbox" id="politica-privacidad" name="politica-privacidad"> Acepto la Política de Privacidad y que mis datos serán almacenados para esta solicitud GDPR.</label>' +
+                '<label for="consentimiento-datos"><input type="checkbox" id="consentimiento-datos" name="consentimiento-datos"> Consiente el tratamiento de sus datos personales con la finalidad de enviarle invitaciones a cursos y talleres similares al solicitado.</label>' +
+                '<br><input type="submit" value="Enviar">' +
                 '</form>' +
                 '</div>');
         }
