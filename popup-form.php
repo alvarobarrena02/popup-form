@@ -38,7 +38,7 @@ function procesar_formulario() {
         return;
     }
 
-    if (!preg_match('/^[0-9]{10,14}$/', $telefono)) {
+    if (!preg_match('/^[0-9]{9,14}$/', $telefono)) {
         wp_send_json_error('El número de teléfono no es válido');
         return;
     }

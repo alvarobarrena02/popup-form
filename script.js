@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
         var telefono = $('#telefono').val();
 
         var emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-        var telefonoRegex = /^[0-9]{10,14}$/; // Asume que el teléfono tiene entre 10 y 14 dígitos
+        var telefonoRegex = /^[0-9]{9,14}$/;
 
         if (!emailRegex.test(email)) {
             alert("Por favor, introduce un correo electrónico válido.");
