@@ -9,7 +9,8 @@
     width: 80px;
     height: 60px;
     text-align: center;
-    margin-bottom: 35px; margin-right: -10px;
+    margin-bottom: 35px;
+    margin-right: -9px;
     transition: all 0.3s ease;
 }
 
