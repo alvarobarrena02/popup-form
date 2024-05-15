@@ -129,7 +129,7 @@
     transform: scale(1.5);
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 768px) {
     #popup-form {
         width: 80%;
