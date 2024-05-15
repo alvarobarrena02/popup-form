@@ -134,7 +134,7 @@
     #popup-form {
         width: 80%;
         height: 80%;
-        padding: 20px 20px 20px 20px;
+        padding: 20px;
     }
 
     #popup-form .fcustom, #popup-form .fcustom-full {
@@ -160,12 +160,13 @@
 @media (max-width: 480px) {
     #popup-form {
         width: 90%;
-        height: 80%;
-        padding: 15px 15px 15px 15px;
+        height: 85%;
+        padding: 15px;
+		margin-top: 0px !important;
     }
 
     #popup-form h2 {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     #popup-form input,
@@ -180,6 +181,6 @@
     }
 
     #cerrar-popup {
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
