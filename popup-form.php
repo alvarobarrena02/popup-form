@@ -34,8 +34,29 @@ function procesar_formulario() {
     global $wpdb;
     $tabla = $wpdb->prefix . 'contactos';
 
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $asunto = $_POST['asunto'];
     $email = $_POST['email'];
     $telefono = $_POST['telefono'];
+
+    // Validación del nombre
+    if (empty($nombre)) {
+        wp_send_json_error('El nombre no es válido');
+        return;
+    }
+
+    // Validación de los apellidos
+    if (empty($apellidos)) {
+        wp_send_json_error('Los apellidos no son válidos');
+        return;
+    }
+
+    // Validación del asunto
+    if (empty($asunto) || strlen($asunto) < 2 || strlen($asunto) > 50) {
+        wp_send_json_error('El asunto no es válido');
+        return;
+    }
 
     // Validación del email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -44,7 +65,7 @@ function procesar_formulario() {
     }
 
     // Validación del teléfono
-    if (!preg_match('/^[0-9]{9,14}$/', $telefono)) {
+    if (!preg_match('/^\+?[0-9]{9,15}$/', $telefono)) {
         wp_send_json_error('El número de teléfono no es válido');
         return;
     }
@@ -56,11 +77,11 @@ function procesar_formulario() {
     }
 
     $datos = array(
-        'nombre' => $_POST['nombre'],
-        'apellidos' => $_POST['apellidos'],
+        'nombre' => $nombre,
+        'apellidos' => $apellidos,
         'email' => $email,
         'telefono' => $telefono,
-        'asunto' => $_POST['asunto'],
+        'asunto' => $asunto,
         'mensaje' => $_POST['mensaje']
     );
     $wpdb->insert($tabla, $datos);

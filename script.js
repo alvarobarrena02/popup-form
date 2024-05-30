@@ -22,13 +22,43 @@ jQuery(document).ready(function($) {
         $('#contact-form').on('submit', function(event) {
             event.preventDefault();
 
+            var nombre = $('#nombre').val();
+            var apellidos = $('#apellidos').val();
+            var asunto = $('#asunto').val();
             var email = $('#email').val();
             var telefono = $('#telefono').val();
             var politicaPrivacidad = $('#politica-privacidad').prop('checked');
             var consentimientoDatos = $('#consentimiento-datos').prop('checked');
 
             var emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-            var telefonoRegex = /^[0-9]{9,14}$/;
+            var telefonoRegex = /^\+?[0-9]{9,15}$/;
+
+            if (nombre.trim() === '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor, introduce tu nombre.'
+                });
+                return;
+            }
+
+            if (apellidos.trim() === '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor, introduce tus apellidos.'
+                });
+                return;
+            }
+
+            if (asunto.trim() === '' || asunto.length < 2 || asunto.length > 50) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor, introduce un asunto válido (2-50 caracteres).'
+                });
+                return;
+            }
 
             if (!emailRegex.test(email)) {
                 Swal.fire({
@@ -52,7 +82,7 @@ jQuery(document).ready(function($) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Debe aceptar la política de privacidad y dar su consentimiento para el tratamiento de datos.'
+                    text: 'Debes aceptar la política de privacidad y dar tu consentimiento para el tratamiento de datos.'
                 });
                 return;
             }
@@ -67,7 +97,7 @@ jQuery(document).ready(function($) {
                         $('#overlay, #popup-form').remove();
                         Swal.fire({
                             icon: 'success',
-                            title: 'Éxito',
+                            title: 'Enviado',
                             text: '¡Formulario enviado con éxito!'
                         });
                     } else {
@@ -82,7 +112,7 @@ jQuery(document).ready(function($) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: 'Hubo un error al enviar el formulario. Inténtelo de nuevo.'
+                        text: 'Hubo un error al enviar el formulario. Inténtalo de nuevo.'
                     });
                 }
             });
