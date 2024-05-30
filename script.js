@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Por favor, introduce tu nombre.'
+                    text: 'Por favor, introduce tu nombre correctamente.'
                 });
                 return;
             }
@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Por favor, introduce tus apellidos.'
+                    text: 'Por favor, introduce tus apellidos correctamente.'
                 });
                 return;
             }

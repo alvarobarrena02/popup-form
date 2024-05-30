@@ -42,37 +42,37 @@ function procesar_formulario() {
 
     // Validación del nombre
     if (empty($nombre)) {
-        wp_send_json_error('El nombre no es válido');
+        wp_send_json_error('El nombre no es válido, vuelve a intentarlo');
         return;
     }
 
     // Validación de los apellidos
     if (empty($apellidos)) {
-        wp_send_json_error('Los apellidos no son válidos');
+        wp_send_json_error('Los apellidos no son válidos, vuelve a intentarlo');
         return;
     }
 
     // Validación del asunto
     if (empty($asunto) || strlen($asunto) < 2 || strlen($asunto) > 50) {
-        wp_send_json_error('El asunto no es válido');
+        wp_send_json_error('El asunto no es válido, vuelve a intentarlo');
         return;
     }
 
     // Validación del email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        wp_send_json_error('El correo electrónico no es válido');
+        wp_send_json_error('El correo electrónico no es válido, vuelve a intentarlo');
         return;
     }
 
     // Validación del teléfono
     if (!preg_match('/^\+?[0-9]{9,15}$/', $telefono)) {
-        wp_send_json_error('El número de teléfono no es válido');
+        wp_send_json_error('El número de teléfono no es válido, vuelve a intentarlo');
         return;
     }
 
     // Validación de los checkboxes
     if (!isset($_POST['politica_privacidad']) || !isset($_POST['consentimiento_datos'])) {
-        wp_send_json_error('Debe aceptar la política de privacidad y dar su consentimiento para el tratamiento de datos');
+        wp_send_json_error('Debes aceptar la política de privacidad y dar tu consentimiento para el tratamiento de datos');
         return;
     }
 
