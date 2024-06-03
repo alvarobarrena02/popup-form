@@ -84,7 +84,10 @@ function procesar_formulario() {
         'asunto' => $asunto,
         'mensaje' => $_POST['mensaje']
     );
-    $wpdb->insert($tabla, $datos);
+
+    $formato = array('%s','%s','%s','%s','%s','%s');
+
+    $wpdb->insert($tabla, $datos, $formato);
     wp_send_json_success('Formulario enviado con éxito');
 }
 add_action('wp_ajax_procesar_formulario', 'procesar_formulario');
