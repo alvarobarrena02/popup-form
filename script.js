@@ -130,7 +130,7 @@ jQuery(document).ready(function($) {
 
         // Cerrar al presionar la tecla Esc
         $(document).keyup(function(e) {
-            if (e.key === "Escape") { // Esc key
+            if (e.key === "Escape") { // Tecla Esc
                 $('#overlay, #popup-form').remove();
             }
         });
