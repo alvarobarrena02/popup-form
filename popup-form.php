@@ -139,7 +139,7 @@ function descargar_csv() {
         $output = fopen('php://output', 'w');
         // Agregar BOM para asegurar UTF-8
         fputs($output, "\xEF\xBB\xBF");
-        fputcsv($output, array('Nombre', 'Apellidos', 'Email', 'Teléfono'));
+        // fputcsv($output, array('Nombre', 'Apellidos', 'Email', 'Teléfono'));
 
         foreach ($resultados as $resultado) {
             fputcsv($output, array($resultado->nombre, $resultado->apellidos, $resultado->email, $resultado->telefono));
