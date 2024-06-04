@@ -84,7 +84,7 @@ function procesar_formulario() {
         'asunto' => $asunto,
         'mensaje' => $_POST['mensaje']
     );
-
+    //Preparación de consultas SQL
     $formato = array('%s','%s','%s','%s','%s','%s');
 
     $wpdb->insert($tabla, $datos, $formato);
@@ -173,7 +173,7 @@ function mostrar_mensajes() {
     foreach ($resultados as $resultado) {
         echo '<tr>';
         echo '<td>' . $resultado->id . '</td>';
-        echo '<td>' . esc_html($resultado->nombre) . '</td>';
+        echo '<td>' . esc_html($resultado->nombre) . '</td>'; // Escapar el HTML con función esc_html() para evitar ataques XSS
         echo '<td>' . esc_html($resultado->apellidos) . '</td>';
         echo '<td>' . esc_html($resultado->email) . '</td>';
         echo '<td>' . esc_html($resultado->telefono) . '</td>';

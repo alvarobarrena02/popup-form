@@ -118,8 +118,21 @@ jQuery(document).ready(function($) {
             });
         });
 
+        // Cerrar al hacer clic en la X
         $('#cerrar-popup').click(function() {
             $('#overlay, #popup-form').remove();
+        });
+
+        // Cerrar al hacer clic fuera del formulario
+        $('#overlay').click(function() {
+            $('#overlay, #popup-form').remove();
+        });
+
+        // Cerrar al presionar la tecla Esc
+        $(document).keyup(function(e) {
+            if (e.key === "Escape") { // Esc key
+                $('#overlay, #popup-form').remove();
+            }
         });
     });
 });
