@@ -30,7 +30,6 @@ function mostrar_sobre() {
 add_action('wp_footer', 'mostrar_sobre');
 
 // Procesar el formulario y guardar los datos en la base de datos
-// Procesar el formulario y guardar los datos en la base de datos
 function procesar_formulario() {
     global $wpdb;
     $tabla = $wpdb->prefix . 'contactos';
@@ -78,11 +77,11 @@ function procesar_formulario() {
     }
 
     $datos = array(
-        'nombre' => $nombre,
-        'apellidos' => $apellidos,
-        'email' => $email,
-        'telefono' => $telefono,
-        'asunto' => $asunto,
+        'nombre' => sanitize_text_field($_POST['nombre']),
+        'apellidos' => sanitize_text_field($_POST['apellidos']),
+        'email' => sanitize_email($_POST['email']),
+        'telefono' => sanitize_text_field($_POST['telefono']),
+        'asunto' => sanitize_text_field($_POST['asunto']),
         'mensaje' => sanitize_textarea_field($_POST['mensaje'])
     );
     // Preparación de consultas SQL
