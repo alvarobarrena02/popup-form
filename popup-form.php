@@ -138,8 +138,9 @@ function descargar_csv() {
         header('Content-Disposition: attachment;filename='.$filename);
 
         $output = fopen('php://output', 'w');
-        // Agregar BOM para asegurar UTF-8
+        // Agregar BOM (Byte Order Mark) para que Excel pueda abrir el archivo CSV correctamente con caracteres UTF-8
         fputs($output, "\xEF\xBB\xBF");
+
         // fputcsv($output, array('Nombre', 'Apellidos', 'Email', 'Teléfono'));
 
         foreach ($resultados as $resultado) {
