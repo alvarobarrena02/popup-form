@@ -30,15 +30,16 @@ function mostrar_sobre() {
 add_action('wp_footer', 'mostrar_sobre');
 
 // Procesar el formulario y guardar los datos en la base de datos
+// Procesar el formulario y guardar los datos en la base de datos
 function procesar_formulario() {
     global $wpdb;
     $tabla = $wpdb->prefix . 'contactos';
 
-    $nombre = $_POST['nombre'];
-    $apellidos = $_POST['apellidos'];
-    $asunto = $_POST['asunto'];
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono'];
+    $nombre = sanitize_text_field($_POST['nombre']);
+    $apellidos = sanitize_text_field($_POST['apellidos']);
+    $asunto = sanitize_text_field($_POST['asunto']);
+    $email = sanitize_email($_POST['email']);
+    $telefono = sanitize_text_field($_POST['telefono']);
 
     // Validación del nombre
     if (empty($nombre)) {
@@ -82,9 +83,9 @@ function procesar_formulario() {
         'email' => $email,
         'telefono' => $telefono,
         'asunto' => $asunto,
-        'mensaje' => $_POST['mensaje']
+        'mensaje' => sanitize_textarea_field($_POST['mensaje'])
     );
-    //Preparación de consultas SQL
+    // Preparación de consultas SQL
     $formato = array('%s','%s','%s','%s','%s','%s');
 
     $wpdb->insert($tabla, $datos, $formato);
@@ -92,6 +93,7 @@ function procesar_formulario() {
 }
 add_action('wp_ajax_procesar_formulario', 'procesar_formulario');
 add_action('wp_ajax_nopriv_procesar_formulario', 'procesar_formulario');
+
 
 // Crear la tabla de contactos en la base de datos
 function crear_tabla_contactos() {
